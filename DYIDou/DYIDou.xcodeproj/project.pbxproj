@@ -18,6 +18,8 @@
 		2BD343F62AB9973900D77055 /* UIImage+DYIDou.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BD343F52AB9973900D77055 /* UIImage+DYIDou.m */; };
 		2BD343FB2AB99A6400D77055 /* DYHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BD343FA2AB99A6400D77055 /* DYHelper.m */; };
 		2BD343FE2AB99D4000D77055 /* UIView+DYIDou.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BD343FD2AB99D4000D77055 /* UIView+DYIDou.m */; };
+		2BD3440D2AB9C4FA00D77055 /* DYLikeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BD3440C2AB9C4FA00D77055 /* DYLikeView.m */; };
+		939A789886BED2E74DC047E5 /* libPods-DYIDou.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF995A469AAF129F8D0FFF1F /* libPods-DYIDou.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,11 @@
 		2BD343FA2AB99A6400D77055 /* DYHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DYHelper.m; sourceTree = "<group>"; };
 		2BD343FC2AB99D4000D77055 /* UIView+DYIDou.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+DYIDou.h"; sourceTree = "<group>"; };
 		2BD343FD2AB99D4000D77055 /* UIView+DYIDou.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+DYIDou.m"; sourceTree = "<group>"; };
+		2BD3440B2AB9C4FA00D77055 /* DYLikeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DYLikeView.h; sourceTree = "<group>"; };
+		2BD3440C2AB9C4FA00D77055 /* DYLikeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DYLikeView.m; sourceTree = "<group>"; };
+		A402A9AFEDD44D91EE54EABA /* Pods-DYIDou.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DYIDou.release.xcconfig"; path = "Target Support Files/Pods-DYIDou/Pods-DYIDou.release.xcconfig"; sourceTree = "<group>"; };
+		BF995A469AAF129F8D0FFF1F /* libPods-DYIDou.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DYIDou.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1D486EB3AA9C6FDBD3150C8 /* Pods-DYIDou.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DYIDou.debug.xcconfig"; path = "Target Support Files/Pods-DYIDou/Pods-DYIDou.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				939A789886BED2E74DC047E5 /* libPods-DYIDou.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,6 +68,8 @@
 			children = (
 				2BD3420A2AB98B0C00D77055 /* DYIDou */,
 				2BD342092AB98B0C00D77055 /* Products */,
+				A1509225DD629A834324CE77 /* Pods */,
+				6AD3A41BE446BB77B053A5BF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -78,6 +88,7 @@
 				2BD3420C2AB98B0C00D77055 /* AppDelegate.m */,
 				2BD342112AB98B0C00D77055 /* ViewController.h */,
 				2BD342122AB98B0C00D77055 /* ViewController.m */,
+				2BD3440A2AB9C4CB00D77055 /* DYVideoLike */,
 				2BD343F72AB9974F00D77055 /* DYBaseKit */,
 				2BD343EC2AB9905200D77055 /* DYVideoPlayer */,
 				2BD342142AB98B0C00D77055 /* Main.storyboard */,
@@ -114,6 +125,33 @@
 			path = DYBaseKit;
 			sourceTree = "<group>";
 		};
+		2BD3440A2AB9C4CB00D77055 /* DYVideoLike */ = {
+			isa = PBXGroup;
+			children = (
+				2BD3440B2AB9C4FA00D77055 /* DYLikeView.h */,
+				2BD3440C2AB9C4FA00D77055 /* DYLikeView.m */,
+			);
+			path = DYVideoLike;
+			sourceTree = "<group>";
+		};
+		6AD3A41BE446BB77B053A5BF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BF995A469AAF129F8D0FFF1F /* libPods-DYIDou.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A1509225DD629A834324CE77 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E1D486EB3AA9C6FDBD3150C8 /* Pods-DYIDou.debug.xcconfig */,
+				A402A9AFEDD44D91EE54EABA /* Pods-DYIDou.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -121,6 +159,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2BD342212AB98B0D00D77055 /* Build configuration list for PBXNativeTarget "DYIDou" */;
 			buildPhases = (
+				6F6FED2561421DDEDBEB2AA2 /* [CP] Check Pods Manifest.lock */,
 				2BD342042AB98B0C00D77055 /* Sources */,
 				2BD342052AB98B0C00D77055 /* Frameworks */,
 				2BD342062AB98B0C00D77055 /* Resources */,
@@ -179,6 +218,31 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6F6FED2561421DDEDBEB2AA2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DYIDou-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		2BD342042AB98B0C00D77055 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -188,6 +252,7 @@
 				2BD343F32AB990EF00D77055 /* DYVideoPlayerController.m in Sources */,
 				2BD3420D2AB98B0C00D77055 /* AppDelegate.m in Sources */,
 				2BD3421E2AB98B0D00D77055 /* main.m in Sources */,
+				2BD3440D2AB9C4FA00D77055 /* DYLikeView.m in Sources */,
 				2BD343FE2AB99D4000D77055 /* UIView+DYIDou.m in Sources */,
 				2BD343EF2AB9907500D77055 /* DYVideoPlayer.m in Sources */,
 				2BD343F62AB9973900D77055 /* UIImage+DYIDou.m in Sources */,
@@ -329,6 +394,7 @@
 		};
 		2BD342222AB98B0D00D77055 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E1D486EB3AA9C6FDBD3150C8 /* Pods-DYIDou.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -361,6 +427,7 @@
 		};
 		2BD342232AB98B0D00D77055 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A402A9AFEDD44D91EE54EABA /* Pods-DYIDou.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

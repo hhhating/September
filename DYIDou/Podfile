@@ -1,0 +1,7 @@
+target 'DYIDou' do
+
+  pod 'Masonry'
+  pod 'LookinServer', :configurations => ['Debug']
+
+
+end
