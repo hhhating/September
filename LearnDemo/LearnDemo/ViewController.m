@@ -11,6 +11,8 @@
 #import "ImplicitAnimation.h"
 #import "CAAnimationDefault.h"
 #import "SessionController.h"
+#import "DYHomeController.h"
+
 @interface ViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic,strong)NSMutableArray *dataArr;
 @end
@@ -30,7 +32,7 @@
 
 - (NSMutableArray *)dataArr {
     if (!_dataArr) {
-        NSArray *arr = @[@[@"自定义绘制", @"旋转动画", @"隐式动画", @"CAAnimation 动画", @"网络编程"]];
+        NSArray *arr = @[@[@"自定义绘制", @"旋转动画", @"隐式动画", @"CAAnimation 动画", @"网络编程", @"抖音"]];
         _dataArr = [NSMutableArray arrayWithArray:arr];
     }
     return _dataArr;
@@ -103,6 +105,11 @@
                 [self.navigationController pushViewController:vc animated:YES];
                 break;
             }
+            case 5:
+            {
+                DYHomeController *vc = [DYHomeController new];
+                [self.navigationController pushViewController:vc animated:YES];
+            }
             default:
                 break;
         }
@@ -120,7 +127,6 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     return 0.1;
 }
-
 
 @end
 

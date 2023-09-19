@@ -14,6 +14,9 @@
 		2BD33FEC2AB43FA300D77055 /* CAGroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BD33FEB2AB43FA300D77055 /* CAGroupView.m */; };
 		2BD33FEF2AB45BF100D77055 /* CATransitionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BD33FEE2AB45BF100D77055 /* CATransitionView.m */; };
 		2BD33FF32AB8261000D77055 /* SessionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BD33FF22AB8261000D77055 /* SessionController.m */; };
+		2BD33FFB2AB87B1C00D77055 /* DYHomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BD33FFA2AB87B1C00D77055 /* DYHomeController.m */; };
+		2BD340042AB945E700D77055 /* LikeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BD340032AB945E700D77055 /* LikeViewController.m */; };
+		2BD340072AB945F800D77055 /* LikeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BD340062AB945F800D77055 /* LikeView.m */; };
 		2BEE44832AAEBD12007A0933 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BEE44822AAEBD12007A0933 /* AppDelegate.m */; };
 		2BEE44892AAEBD12007A0933 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BEE44882AAEBD12007A0933 /* ViewController.m */; };
 		2BEE448C2AAEBD12007A0933 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BEE448A2AAEBD12007A0933 /* Main.storyboard */; };
@@ -26,6 +29,7 @@
 		2BEE48612AAF4040007A0933 /* DefaultImplicit.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BEE48602AAF4040007A0933 /* DefaultImplicit.m */; };
 		2BEE48642AAF42D8007A0933 /* WorkImplicit.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BEE48632AAF42D8007A0933 /* WorkImplicit.m */; };
 		2BEE48672AAF4301007A0933 /* CustomImplicit.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BEE48662AAF4301007A0933 /* CustomImplicit.m */; };
+		C265D2C978C1A5DC16746F4E /* libPods-LearnDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AD04CD9B6632D3473A3B601 /* libPods-LearnDemo.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +47,12 @@
 		2BD33FEE2AB45BF100D77055 /* CATransitionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CATransitionView.m; sourceTree = "<group>"; };
 		2BD33FF12AB8261000D77055 /* SessionController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SessionController.h; sourceTree = "<group>"; };
 		2BD33FF22AB8261000D77055 /* SessionController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SessionController.m; sourceTree = "<group>"; };
+		2BD33FF92AB87B1C00D77055 /* DYHomeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DYHomeController.h; sourceTree = "<group>"; };
+		2BD33FFA2AB87B1C00D77055 /* DYHomeController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DYHomeController.m; sourceTree = "<group>"; };
+		2BD340022AB945E700D77055 /* LikeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LikeViewController.h; sourceTree = "<group>"; };
+		2BD340032AB945E700D77055 /* LikeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LikeViewController.m; sourceTree = "<group>"; };
+		2BD340052AB945F800D77055 /* LikeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LikeView.h; sourceTree = "<group>"; };
+		2BD340062AB945F800D77055 /* LikeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LikeView.m; sourceTree = "<group>"; };
 		2BEE447E2AAEBD12007A0933 /* LearnDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LearnDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BEE44812AAEBD12007A0933 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2BEE44822AAEBD12007A0933 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -65,6 +75,9 @@
 		2BEE48632AAF42D8007A0933 /* WorkImplicit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WorkImplicit.m; sourceTree = "<group>"; };
 		2BEE48652AAF4301007A0933 /* CustomImplicit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomImplicit.h; sourceTree = "<group>"; };
 		2BEE48662AAF4301007A0933 /* CustomImplicit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomImplicit.m; sourceTree = "<group>"; };
+		3AD04CD9B6632D3473A3B601 /* libPods-LearnDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LearnDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E0CAA4133A00260F4C8B9252 /* Pods-LearnDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LearnDemo.release.xcconfig"; path = "Target Support Files/Pods-LearnDemo/Pods-LearnDemo.release.xcconfig"; sourceTree = "<group>"; };
+		F772626AF601DA77F192310E /* Pods-LearnDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LearnDemo.debug.xcconfig"; path = "Target Support Files/Pods-LearnDemo/Pods-LearnDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C265D2C978C1A5DC16746F4E /* libPods-LearnDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,11 +131,26 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		2BD33FF82AB87A4700D77055 /* DouYin */ = {
+			isa = PBXGroup;
+			children = (
+				2BD33FF92AB87B1C00D77055 /* DYHomeController.h */,
+				2BD33FFA2AB87B1C00D77055 /* DYHomeController.m */,
+				2BD340022AB945E700D77055 /* LikeViewController.h */,
+				2BD340032AB945E700D77055 /* LikeViewController.m */,
+				2BD340052AB945F800D77055 /* LikeView.h */,
+				2BD340062AB945F800D77055 /* LikeView.m */,
+			);
+			path = DouYin;
+			sourceTree = "<group>";
+		};
 		2BEE44752AAEBD12007A0933 = {
 			isa = PBXGroup;
 			children = (
 				2BEE44802AAEBD12007A0933 /* LearnDemo */,
 				2BEE447F2AAEBD12007A0933 /* Products */,
+				971D8DDEDA05F7052C4D3D0C /* Pods */,
+				A584131B02C448631A2A2B1A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -140,6 +169,7 @@
 				2BEE44822AAEBD12007A0933 /* AppDelegate.m */,
 				2BEE44872AAEBD12007A0933 /* ViewController.h */,
 				2BEE44882AAEBD12007A0933 /* ViewController.m */,
+				2BD33FF82AB87A4700D77055 /* DouYin */,
 				2BD33FDD2AB32B1B00D77055 /* CAAnimation */,
 				2BD33FF02AB825D200D77055 /* Network */,
 				2BD33FDC2AB32AF000D77055 /* CALayer */,
@@ -168,6 +198,23 @@
 			path = Implicit;
 			sourceTree = "<group>";
 		};
+		971D8DDEDA05F7052C4D3D0C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F772626AF601DA77F192310E /* Pods-LearnDemo.debug.xcconfig */,
+				E0CAA4133A00260F4C8B9252 /* Pods-LearnDemo.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		A584131B02C448631A2A2B1A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3AD04CD9B6632D3473A3B601 /* libPods-LearnDemo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -175,6 +222,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2BEE44972AAEBD12007A0933 /* Build configuration list for PBXNativeTarget "LearnDemo" */;
 			buildPhases = (
+				35FA0475A885B0BC9B7ADFE5 /* [CP] Check Pods Manifest.lock */,
 				2BEE447A2AAEBD12007A0933 /* Sources */,
 				2BEE447B2AAEBD12007A0933 /* Frameworks */,
 				2BEE447C2AAEBD12007A0933 /* Resources */,
@@ -233,13 +281,40 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		35FA0475A885B0BC9B7ADFE5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LearnDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		2BEE447A2AAEBD12007A0933 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				2BD33FEF2AB45BF100D77055 /* CATransitionView.m in Sources */,
+				2BD340042AB945E700D77055 /* LikeViewController.m in Sources */,
 				2BEE44892AAEBD12007A0933 /* ViewController.m in Sources */,
+				2BD340072AB945F800D77055 /* LikeView.m in Sources */,
 				2BEE48612AAF4040007A0933 /* DefaultImplicit.m in Sources */,
 				2BD33FE92AB42D3000D77055 /* CAKeyFramePath.m in Sources */,
 				2BD33FE32AB32B9100D77055 /* CAAnimationDefault.m in Sources */,
@@ -249,6 +324,7 @@
 				2BD33FEC2AB43FA300D77055 /* CAGroupView.m in Sources */,
 				2BEE48672AAF4301007A0933 /* CustomImplicit.m in Sources */,
 				2BEE485D2AAF2E81007A0933 /* ImplicitAnimation.m in Sources */,
+				2BD33FFB2AB87B1C00D77055 /* DYHomeController.m in Sources */,
 				2BEE46672AAEC69E007A0933 /* CALayerController.m in Sources */,
 				2BD33FE02AB32B4400D77055 /* ChangeColor.m in Sources */,
 				2BD33FE62AB4020800D77055 /* CAKeyFrameValues.m in Sources */,
@@ -391,6 +467,7 @@
 		};
 		2BEE44982AAEBD12007A0933 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F772626AF601DA77F192310E /* Pods-LearnDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -423,6 +500,7 @@
 		};
 		2BEE44992AAEBD12007A0933 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E0CAA4133A00260F4C8B9252 /* Pods-LearnDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
