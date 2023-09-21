@@ -2,6 +2,6 @@ target 'DYIDou' do
 
   pod 'Masonry'
   pod 'LookinServer', :configurations => ['Debug']
-
+  pod 'SDWebImage', '~> 4.0'
 
 end

@@ -114,6 +114,14 @@ static const NSInteger kFavoriteViewLikeAfterTag   = 0x02;
         _likeAfter.alpha = 0.0f;
         // 逆时针旋转 120 度，x 和 y 方向都缩小为原来的一半
         _likeAfter.transform = CGAffineTransformScale(CGAffineTransformMakeRotation(-M_PI/3*2), 0.5f, 0.5f);
+        // 前 20% 的时间让 likeBefore 有个缩小的过程
+        [UIView animateWithDuration:0.2f
+                              delay:0.0f
+                            options:UIViewAnimationOptionCurveEaseIn
+                         animations:^{
+                             self.likeBefore.transform = CGAffineTransformScale(CGAffineTransformMakeRotation(0), 0.1f, 0.1f);
+                         }
+                         completion:nil];
         [UIView animateWithDuration:0.4f      // 动画总的持续时间
                              delay:0.2f     // 延迟执行动画的时间
              usingSpringWithDamping:0.6f     // 是弹簧阻尼系数，控制动画的弹簧效果。值越小，弹簧效果越明显
@@ -126,6 +134,7 @@ static const NSInteger kFavoriteViewLikeAfterTag   = 0x02;
                              self.likeAfter.transform = CGAffineTransformScale(CGAffineTransformMakeRotation(0), 1.0f, 1.0f);
                          }
                          completion:^(BOOL finished) {
+                             self.likeBefore.transform = CGAffineTransformScale(CGAffineTransformMakeRotation(0), 1.0f, 1.0f);
                              [self.likeBefore setHidden:YES];
                              self.likeBefore.userInteractionEnabled = YES;
                              self.likeAfter.userInteractionEnabled = YES;

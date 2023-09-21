@@ -112,7 +112,7 @@ static const NSString *kOriginalTime = @"00";
 
 #pragma mark - Respond method
 
-- (void)singleTap:(UITapGestureRecognizer*)gesture {
+- (void)singleTap:(UITapGestureRecognizer *)gesture {
     if (self.videoPreview.player.rate == 1.0) {
         [self.videoPreview pause];
         self.pauseButton.hidden = NO;
