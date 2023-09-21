@@ -46,10 +46,10 @@
     self.likeView.likeDuration = 0.5;
     self.likeView.likeColor = [UIColor redColor];
     [self.likeView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.view.mas_top).offset(560); // 距离顶部 560 个点的位置
-        make.right.equalTo(self.view.mas_right).offset(-10); // 距离右边 10 个点的位置
-        make.width.equalTo(@(width)); // 设置宽度，你可以将 width 替换为具体的值
-        make.height.equalTo(@(height)); // 设置高度，你可以将 height 替换为具体的值
+        make.top.equalTo(self.view.mas_top).offset(560);
+        make.right.equalTo(self.view.mas_right).offset(-10);
+        make.width.equalTo(@(width));
+        make.height.equalTo(@(height));
     }];
 
 
