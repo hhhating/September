@@ -20,6 +20,7 @@
 		2BD343FE2AB99D4000D77055 /* UIView+DYIDou.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BD343FD2AB99D4000D77055 /* UIView+DYIDou.m */; };
 		2BD3440D2AB9C4FA00D77055 /* DYLikeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BD3440C2AB9C4FA00D77055 /* DYLikeView.m */; };
 		2BD344112ABC3C8E00D77055 /* DYMusicAlbumView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BD344102ABC3C8E00D77055 /* DYMusicAlbumView.m */; };
+		2BD344172ABD409600D77055 /* DYInteractViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BD344162ABD409600D77055 /* DYInteractViewController.m */; };
 		939A789886BED2E74DC047E5 /* libPods-DYIDou.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF995A469AAF129F8D0FFF1F /* libPods-DYIDou.a */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +50,8 @@
 		2BD3440C2AB9C4FA00D77055 /* DYLikeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DYLikeView.m; sourceTree = "<group>"; };
 		2BD3440F2ABC3C8E00D77055 /* DYMusicAlbumView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DYMusicAlbumView.h; sourceTree = "<group>"; };
 		2BD344102ABC3C8E00D77055 /* DYMusicAlbumView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DYMusicAlbumView.m; sourceTree = "<group>"; };
+		2BD344152ABD409600D77055 /* DYInteractViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DYInteractViewController.h; sourceTree = "<group>"; };
+		2BD344162ABD409600D77055 /* DYInteractViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DYInteractViewController.m; sourceTree = "<group>"; };
 		A402A9AFEDD44D91EE54EABA /* Pods-DYIDou.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DYIDou.release.xcconfig"; path = "Target Support Files/Pods-DYIDou/Pods-DYIDou.release.xcconfig"; sourceTree = "<group>"; };
 		BF995A469AAF129F8D0FFF1F /* libPods-DYIDou.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DYIDou.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1D486EB3AA9C6FDBD3150C8 /* Pods-DYIDou.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DYIDou.debug.xcconfig"; path = "Target Support Files/Pods-DYIDou/Pods-DYIDou.debug.xcconfig"; sourceTree = "<group>"; };
@@ -91,8 +94,7 @@
 				2BD3420C2AB98B0C00D77055 /* AppDelegate.m */,
 				2BD342112AB98B0C00D77055 /* ViewController.h */,
 				2BD342122AB98B0C00D77055 /* ViewController.m */,
-				2BD3440A2AB9C4CB00D77055 /* DYVideoLike */,
-				2BD3440E2ABC3C5F00D77055 /* DYMusicAlbum */,
+				2BD3440A2AB9C4CB00D77055 /* DYInterartView */,
 				2BD343F72AB9974F00D77055 /* DYBaseKit */,
 				2BD343EC2AB9905200D77055 /* DYVideoPlayer */,
 				2BD342142AB98B0C00D77055 /* Main.storyboard */,
@@ -129,22 +131,17 @@
 			path = DYBaseKit;
 			sourceTree = "<group>";
 		};
-		2BD3440A2AB9C4CB00D77055 /* DYVideoLike */ = {
+		2BD3440A2AB9C4CB00D77055 /* DYInterartView */ = {
 			isa = PBXGroup;
 			children = (
+				2BD344152ABD409600D77055 /* DYInteractViewController.h */,
+				2BD344162ABD409600D77055 /* DYInteractViewController.m */,
 				2BD3440B2AB9C4FA00D77055 /* DYLikeView.h */,
-				2BD3440C2AB9C4FA00D77055 /* DYLikeView.m */,
-			);
-			path = DYVideoLike;
-			sourceTree = "<group>";
-		};
-		2BD3440E2ABC3C5F00D77055 /* DYMusicAlbum */ = {
-			isa = PBXGroup;
-			children = (
 				2BD3440F2ABC3C8E00D77055 /* DYMusicAlbumView.h */,
 				2BD344102ABC3C8E00D77055 /* DYMusicAlbumView.m */,
+				2BD3440C2AB9C4FA00D77055 /* DYLikeView.m */,
 			);
-			path = DYMusicAlbum;
+			path = DYInterartView;
 			sourceTree = "<group>";
 		};
 		6AD3A41BE446BB77B053A5BF /* Frameworks */ = {
@@ -263,6 +260,7 @@
 				2BD342132AB98B0C00D77055 /* ViewController.m in Sources */,
 				2BD343F32AB990EF00D77055 /* DYVideoPlayerController.m in Sources */,
 				2BD3420D2AB98B0C00D77055 /* AppDelegate.m in Sources */,
+				2BD344172ABD409600D77055 /* DYInteractViewController.m in Sources */,
 				2BD3421E2AB98B0D00D77055 /* main.m in Sources */,
 				2BD3440D2AB9C4FA00D77055 /* DYLikeView.m in Sources */,
 				2BD343FE2AB99D4000D77055 /* UIView+DYIDou.m in Sources */,
