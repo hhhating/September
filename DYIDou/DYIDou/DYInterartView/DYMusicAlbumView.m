@@ -20,7 +20,7 @@
         backgroundLayer.frame = self.bounds;
         backgroundLayer.contents = (id)[UIImage imageNamed:@"music_album"].CGImage;
         [self.albumContainer.layer addSublayer:backgroundLayer];
-        // 可用于后面自定义图片
+        // 用于自定义图片
         CGFloat w = CGRectGetWidth(frame) / 2.0f;
         CGFloat h = CGRectGetHeight(frame) / 2.0f;
         CGRect albumFrame = CGRectMake(w / 2.0f, h / 2.0f, w, h);
