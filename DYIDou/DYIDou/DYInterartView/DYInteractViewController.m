@@ -6,7 +6,7 @@
 //
 
 #import "DYInteractViewController.h"
-#import "SharePopView.h"
+#import "DYShareView.h"
 static CGFloat widthHeight = 50;
 static CGFloat labelHeight = 15;
 static const NSInteger kAwemeListLikeCommentTag = 0x01;
@@ -82,7 +82,7 @@ static const NSInteger kAwemeListLikeShareTag   = 0x02;
             break;
         }
         case kAwemeListLikeShareTag: {
-            SharePopView *popView = [[SharePopView alloc] init];
+            DYShareView *popView = [[DYShareView alloc] init];
             [popView show];
             break;
         }

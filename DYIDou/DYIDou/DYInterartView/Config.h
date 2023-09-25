@@ -24,6 +24,8 @@
 #define BigFont [UIFont systemFontOfSize:16.0]
 #define BigBoldFont [UIFont boldSystemFontOfSize:16.0]
 #define MediumFont [UIFont systemFontOfSize:14.0]
-
+#define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
+#define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
+#define STATUS_BAR_HEIGHT [UIApplication sharedApplication].statusBarFrame.size.height
 #define SafeAreaBottomHeight ((ScreenHeight >= 812.0) && [[UIDevice currentDevice].model isEqualToString:@"iPhone"]  ? 30 : 0)
 #endif /* Config_h */
