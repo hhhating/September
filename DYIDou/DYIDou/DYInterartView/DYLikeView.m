@@ -17,28 +17,44 @@ static const NSInteger kFavoriteViewLikeAfterTag   = 0x02;
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame: frame];
     if (self) {
-        _likeBefore = [[UIImageView alloc] initWithFrame:frame];
+        [self addSubview];
+    }
+    return self;
+}
+
+#pragma mark - getter
+- (UIImageView *)likeBefore {
+    if (!_likeBefore) {
+        _likeBefore = [[UIImageView alloc] initWithFrame:self.frame];
         _likeBefore.contentMode = UIViewContentModeCenter;
         _likeBefore.image = [UIImage imageNamed:@"like_before"];
         // 交互互动的功能，允许响应触摸事件
         _likeBefore.userInteractionEnabled = YES;
         _likeBefore.tag = kFavoriteViewLikeBeforeTag;
         [_likeBefore addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleGesture:)]];
-        [self addSubview:_likeBefore];
-        
-        _likeAfter = [[UIImageView alloc] initWithFrame:frame];
+    }
+    return _likeBefore;
+}
+
+- (UIImageView *)likeAfter {
+    if (!_likeAfter) {
+        _likeAfter = [[UIImageView alloc] initWithFrame:self.frame];
         _likeAfter.contentMode = UIViewContentModeCenter;
         _likeAfter.image = [UIImage imageNamed:@"like_after"];
         _likeAfter.userInteractionEnabled = YES;
         _likeAfter.tag = kFavoriteViewLikeAfterTag;
         [_likeAfter setHidden:YES];
         [_likeAfter addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleGesture:)]];
-        [self addSubview:_likeAfter];
     }
-    return self;
+    return _likeAfter;
 }
 
-#pragma mark - getter
+#pragma mark - method
+- (void)addSubview {
+    [self addSubview:self.likeBefore];
+    [self addSubview:self.likeAfter];
+}
+
 - (void)handleGesture:(UITapGestureRecognizer *)sender {
     switch(sender.view.tag) {
         case kFavoriteViewLikeBeforeTag: {

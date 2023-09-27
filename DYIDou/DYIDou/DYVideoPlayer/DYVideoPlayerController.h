@@ -11,7 +11,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface DYVideoPlayerController : UIViewController
 @property (nonatomic, readonly) UIButton *pauseButton;
-@property (nonatomic, readonly) UIButton *closeButton;
 @property (nonatomic, readonly) UISlider *playProgress;
 @property (nonatomic, readonly) UILabel *currentTimeLabel;
 @property (nonatomic, readonly) UILabel *totalTimeLabel;

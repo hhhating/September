@@ -22,7 +22,7 @@ static NSUInteger kDataSourceCount = 100;
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.currentIndex = 3;
+        self.currentIndex = 0;
     }
     return self;
 }
@@ -32,8 +32,7 @@ static NSUInteger kDataSourceCount = 100;
     [self setUpView];
 }
 
-#pragma mark -
-#pragma mark - private methods 私有方法
+#pragma mark - private methods
 - (void)setUpView {
     // 核心在于控制 tableView 的上下边距
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, -SCREEN_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT * 5)];
@@ -57,6 +56,14 @@ static NSUInteger kDataSourceCount = 100;
         NSIndexPath *curIndexPath = [NSIndexPath indexPathForRow:self.currentIndex inSection:0];
         [self.tableView scrollToRowAtIndexPath:curIndexPath atScrollPosition:UITableViewScrollPositionMiddle animated:NO];
     });
+}
+
+- (UIColor *)randomColor {
+    CGFloat hue = (arc4random() % 256 / 256.0 );  //  0.0 to 1.0
+    CGFloat saturation = ( arc4random() % 128 / 256.0 ) + 0.5;  //  0.5 to 1.0, away from white
+    CGFloat brightness = ( arc4random() % 128 / 256.0 ) + 0.5;  //  0.5 to 1.0, away from black
+    UIColor *color = [UIColor colorWithHue:hue saturation:saturation brightness:brightness alpha:1];
+    return color;
 }
 
 #pragma mark - UITableViewDelegate
@@ -102,15 +109,6 @@ static NSUInteger kDataSourceCount = 100;
                             }];
         
     });
-}
-
-#pragma mark - event response 所有触发的事件响应 按钮、通知、分段控件等
-- (UIColor *)randomColor {
-    CGFloat hue = (arc4random() % 256 / 256.0 );  //  0.0 to 1.0
-    CGFloat saturation = ( arc4random() % 128 / 256.0 ) + 0.5;  //  0.5 to 1.0, away from white
-    CGFloat brightness = ( arc4random() % 128 / 256.0 ) + 0.5;  //  0.5 to 1.0, away from black
-    UIColor *color = [UIColor colorWithHue:hue saturation:saturation brightness:brightness alpha:1];
-    return color;
 }
 
 @end

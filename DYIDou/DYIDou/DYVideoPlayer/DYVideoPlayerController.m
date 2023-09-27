@@ -17,7 +17,6 @@ static const NSString *kOriginalTime = @"00";
 
 @interface DYVideoPlayerController ()
 @property (nonatomic, strong) UIButton *pauseButton;
-//@property (nonatomic, strong) UIButton *closeButton;
 @property (nonatomic, strong) UISlider *playProgress;
 @property (nonatomic, strong) UILabel *currentTimeLabel;
 @property (nonatomic, strong) UILabel *totalTimeLabel;
@@ -129,10 +128,6 @@ static const NSString *kOriginalTime = @"00";
     }
 }
 
-- (void)closeButtonClick {
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
 - (void)handleSeek {
     [self.videoPreview seekToTime:self.playProgress.value * self.totalTime];
 }
@@ -159,17 +154,6 @@ static const NSString *kOriginalTime = @"00";
     }
     return _pauseButton;
 }
-
-//- (UIButton *)closeButton {
-//    if (!_closeButton) {
-//        _closeButton = [[UIButton alloc] initWithFrame:(CGRect)CGRectMake(0, CKBStatusBarHeight(), 30, 30)];
-//        _closeButton.backgroundColor = [UIColor clearColor];
-//        UIImage *image = [UIImage ckb_imageNamed:@"icon_back" bundleName:@"CKBaseKit"];
-//        [_closeButton setImage:image forState:UIControlStateNormal];
-//        [_closeButton addTarget:self action:@selector(closeButtonClick) forControlEvents:UIControlEventTouchUpInside];
-//    }
-//    return _closeButton;
-//}
 
 - (UIView *)playerView {
     if (!_playerView) {

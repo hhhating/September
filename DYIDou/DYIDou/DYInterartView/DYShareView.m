@@ -4,127 +4,45 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 
 #pragma mark -- DYShareView
+static CGFloat kItemWidth = 68.0;
 @interface DYShareView ()
 @property (nonatomic, strong) NSArray *topIconsName;
 @property (nonatomic, strong) NSArray *topTexts;
 @property (nonatomic, strong) NSArray *bottomIconsName;
 @property (nonatomic, strong) NSArray *bottomTexts;
+@property (nonatomic, strong) UILabel *shareLabel;
+@property (nonatomic, strong) UIScrollView *topScrollView;
+@property (nonatomic, strong) UIScrollView *bottomScrollView;
 @end
 @implementation DYShareView
-
 
 - (instancetype)init {
     self = [super init];
     if (self) {
         [self initData];
-
         self.frame = ScreenFrame;
         [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleGuesture:)]];
-        _container = [[UIView alloc] initWithFrame:CGRectMake(0, ScreenHeight, ScreenWidth, 290 + SafeAreaBottomHeight)];
-        _container.backgroundColor = [UIColor whiteColor];
-        UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:_container.bounds
-                                                               byRoundingCorners:UIRectCornerTopLeft | UIRectCornerTopRight
-                                                                     cornerRadii:CGSizeMake(20.0, 20.0)];
-        CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
-        maskLayer.frame = _container.bounds;
-        maskLayer.path = maskPath.CGPath;
-        _container.layer.mask = maskLayer;
-        [self addSubview:_container];
-
-
-
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(7, 13, 100, 35)];
-        label.textAlignment = NSTextAlignmentCenter;
-        label.numberOfLines = 0;
-        label.text = @"分享给朋友";
-        label.textColor = [UIColor blackColor];
-        label.font = BigBoldFont;
-        [_container addSubview:label];
-
-
-        CGFloat itemWidth = 68;
-
-        UIScrollView *topScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 56, ScreenWidth, 105)];
-        topScrollView.contentSize = CGSizeMake(itemWidth * self.topIconsName.count, 80);
-        topScrollView.showsHorizontalScrollIndicator = NO;
-        topScrollView.contentInset = UIEdgeInsetsMake(0, 0, 0, 30);
-        [_container addSubview:topScrollView];
-
-        for (NSInteger i = 0; i < self.topIconsName.count; i++) {
-            DYShareItem *item = [[DYShareItem alloc] initWithFrame:CGRectMake(20 + (itemWidth + 13) * i, 0, 58, 105)];
-            [item setImageWithURL:self.topIconsName[i]];
-            item.label.text = self.topTexts[i];
-            item.tag = i;
-            [item addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onShareItemTap:)]];
-            [topScrollView addSubview:item];
-        }
-
-        UIScrollView *bottomScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 175, ScreenWidth, 105)];
-        bottomScrollView.contentSize = CGSizeMake(itemWidth * self.bottomIconsName.count, 80);
-        bottomScrollView.showsHorizontalScrollIndicator = NO;
-        bottomScrollView.contentInset = UIEdgeInsetsMake(0, 0, 0, 30);
-        [_container addSubview:bottomScrollView];
-        for (NSInteger i = 0; i < self.bottomIconsName.count; i++) {
-            DYShareItem *item = [[DYShareItem alloc] initWithFrame:CGRectMake(20 + (itemWidth + 13) * i, 0, 58, 105)];
-            item.icon.image = [UIImage imageNamed:self.bottomIconsName[i]];
-            item.label.text = self.bottomTexts[i];
-            item.tag = i;
-            [item addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onActionItemTap:)]];
-            [bottomScrollView addSubview:item];
-        }
+        [self addSubview:self.container];
+        [self addSubviewToContainer];
     }
     return self;
 }
 
-- (void)initData {
-    _topIconsName = @[
-        @"https://img.freepik.com/free-photo/asian-teenager-s-portrait-isolated-blue-studio-background_155003-33140.jpg",
-        @"https://img.freepik.com/free-photo/smiley-male-with-backpack_23-2148518154.jpg",
-        @"https://img.freepik.com/premium-photo/young-hipster-asian-man-traveling-with-backpack-summer-forest-trip-travel-lifestyle-concept_41471-13022.jpg",
-        @"https://img.freepik.com/free-photo/cute-baby-born_624325-1181.jpg",
-        @"https://img.freepik.com/premium-photo/school-girl-wear-pink-shirt-jean-holding-holding-pink-book-stairs_323117-2352.jpg",
-        @"https://img.freepik.com/free-photo/fun-3d-cartoon-casual-character_183364-80985.jpg",
-    ];
-    _topTexts = @[
-        @"飞越仙女岛🐰",
-        @"LiLi",
-        @"等风吹🏀",
-        @"吃不吃青椒",
-        @"姜丝煮可乐i",
-        @"Pixel.",
-    ];
-    _bottomIconsName = @[
-        @"icon_forward",
-        @"icon_copy",
-        @"icon_recommend",
-        @"icon_record",
-    ];
-    _bottomTexts = @[
-        @"转发",
-        @"复制链接",
-        @"推荐给朋友",
-        @"合拍",
-    ];
+#pragma mark - method
+- (void)addSubviewToContainer {
+    [self.container addSubview:self.shareLabel];
+    [self.container addSubview:self.topScrollView];
+    [self.container addSubview:self.bottomScrollView];
 }
 
-#pragma mark - method
 - (void)onShareItemTap:(UITapGestureRecognizer *)sender {
-    switch (sender.view.tag) {
-        case 0:
-            break;
-        default:
-            break;
-    }
-//    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://github.com/sshiqiao/douyin-ios-objectc"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://github.com/hhhating/September/tree/master/DYIDou"]
+                                        options:@{}
+                              completionHandler:nil];
     [self dismiss];
 }
+
 - (void)onActionItemTap:(UITapGestureRecognizer *)sender {
-    switch (sender.view.tag) {
-        case 0:
-            break;
-        default:
-            break;
-    }
     [self dismiss];
 }
 
@@ -169,8 +87,100 @@
                      }];
 }
 
-#pragma mark - getter
+#pragma mark - DYShareView getter
+- (void)initData {
+    _topIconsName = @[
+        @"https://img.freepik.com/free-photo/asian-teenager-s-portrait-isolated-blue-studio-background_155003-33140.jpg",
+        @"https://img.freepik.com/free-photo/smiley-male-with-backpack_23-2148518154.jpg",
+        @"https://img.freepik.com/premium-photo/young-hipster-asian-man-traveling-with-backpack-summer-forest-trip-travel-lifestyle-concept_41471-13022.jpg",
+        @"https://img.freepik.com/free-photo/cute-baby-born_624325-1181.jpg",
+        @"https://img.freepik.com/premium-photo/school-girl-wear-pink-shirt-jean-holding-holding-pink-book-stairs_323117-2352.jpg",
+        @"https://img.freepik.com/free-photo/fun-3d-cartoon-casual-character_183364-80985.jpg",
+    ];
+    _topTexts = @[
+        @"飞越仙女岛🐰",
+        @"LiLi",
+        @"等风吹🏀",
+        @"吃不吃青椒",
+        @"姜丝煮可乐i",
+        @"Pixel.",
+    ];
+    _bottomIconsName = @[
+        @"icon_forward",
+        @"icon_copy",
+        @"icon_recommend",
+        @"icon_record",
+    ];
+    _bottomTexts = @[
+        @"转发",
+        @"复制链接",
+        @"推荐给朋友",
+        @"合拍",
+    ];
+}
 
+- (UIView *)container {
+    if (!_container) {
+        _container = [[UIView alloc] initWithFrame:CGRectMake(0, ScreenHeight, ScreenWidth, 290 + SafeAreaBottomHeight)];
+        _container.backgroundColor = [UIColor whiteColor];
+        UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:_container.bounds
+                                                               byRoundingCorners:UIRectCornerTopLeft | UIRectCornerTopRight
+                                                                     cornerRadii:CGSizeMake(20.0, 20.0)];
+        CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
+        maskLayer.frame = _container.bounds;
+        maskLayer.path = maskPath.CGPath;
+        _container.layer.mask = maskLayer;
+    }
+    return _container;
+}
+
+- (UILabel *)shareLabel {
+    if (!_shareLabel) {
+        _shareLabel = [[UILabel alloc] initWithFrame:CGRectMake(7, 13, 100, 35)];
+        _shareLabel.textAlignment = NSTextAlignmentCenter;
+        _shareLabel.numberOfLines = 0;
+        _shareLabel.text = @"分享给朋友";
+        _shareLabel.textColor = [UIColor blackColor];
+        _shareLabel.font = BigBoldFont;
+    }
+    return _shareLabel;
+}
+
+- (UIScrollView *)topScrollView {
+    if (!_topScrollView) {
+        _topScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 56, ScreenWidth, 105)];
+        _topScrollView.contentSize = CGSizeMake(kItemWidth * self.topIconsName.count, 80);
+        _topScrollView.showsHorizontalScrollIndicator = NO;
+        _topScrollView.contentInset = UIEdgeInsetsMake(0, 0, 0, 30);
+        for (NSInteger i = 0; i < self.topIconsName.count; i++) {
+            DYShareItem *item = [[DYShareItem alloc] initWithFrame:CGRectMake(20 + (kItemWidth + 13) * i, 0, 58, 105)];
+            [item setImageWithURL:self.topIconsName[i]];
+            item.label.text = self.topTexts[i];
+            item.tag = i;
+            [item addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onShareItemTap:)]];
+            [_topScrollView addSubview:item];
+        }
+    }
+    return _topScrollView;
+}
+
+- (UIScrollView *)bottomScrollView {
+    if (!_bottomScrollView) {
+        _bottomScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 175, ScreenWidth, 105)];
+        _bottomScrollView.contentSize = CGSizeMake(kItemWidth * self.bottomIconsName.count, 80);
+        _bottomScrollView.showsHorizontalScrollIndicator = NO;
+        _bottomScrollView.contentInset = UIEdgeInsetsMake(0, 0, 0, 30);
+        for (NSInteger i = 0; i < self.bottomIconsName.count; i++) {
+            DYShareItem *item = [[DYShareItem alloc] initWithFrame:CGRectMake(20 + (kItemWidth + 13) * i, 0, 58, 105)];
+            item.icon.image = [UIImage imageNamed:self.bottomIconsName[i]];
+            item.label.text = self.bottomTexts[i];
+            item.tag = i;
+            [item addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onActionItemTap:)]];
+            [_bottomScrollView addSubview:item];
+        }
+    }
+    return _bottomScrollView;
+}
 @end
 
 #pragma mark -- DYShareItem
@@ -209,7 +219,7 @@
     }];
 }
 
-#pragma mark - getter
+#pragma mark - DYShareItem getter
 - (UIImageView *)icon {
     if (!_icon) {
         CGFloat wh = 58.0f;

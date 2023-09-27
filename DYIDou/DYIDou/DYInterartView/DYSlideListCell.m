@@ -24,6 +24,7 @@
         
         // 创建和设置UILabel
         self.label = [[UILabel alloc] init];
+        self.label.font = [UIFont systemFontOfSize:36 weight:UIFontWeightBold];
         self.label.textAlignment = NSTextAlignmentCenter;
         [self.contentView addSubview:self.label];
         
