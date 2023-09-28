@@ -98,7 +98,6 @@ static NSUInteger kDataSourceCount = 100;
                             } completion:^(BOOL finished) {
                                 scrollView.panGestureRecognizer.enabled = YES;
                             }];
-        
     });
 }
 

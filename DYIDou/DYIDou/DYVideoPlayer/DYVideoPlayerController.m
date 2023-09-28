@@ -20,7 +20,6 @@ static const NSString *kOriginalTime = @"00";
 @property (nonatomic, strong) UISlider *playProgress;
 @property (nonatomic, strong) UILabel *currentTimeLabel;
 @property (nonatomic, strong) UILabel *totalTimeLabel;
-@property (nonatomic, strong) DYVideoPlayer *videoPreview;
 @property (nonatomic, strong) UIView *contentView;
 @property (nonatomic, strong) UIView *playerView;
 @property (nonatomic, assign) CGFloat totalTime;
@@ -103,7 +102,9 @@ static const NSString *kOriginalTime = @"00";
     [_videoPreview setPlayerStatusChangeCallBack:^(AVPlayer *player, DYPlayerStatus status) {
         __strong typeof(self) strongSelf = weakSelf;
         if (status == DYPlayerStatusFinished) {
-            strongSelf.pauseButton.hidden = NO;
+//            strongSelf.pauseButton.hidden = NO;
+            [self.videoPreview seekToTime:0.0];
+            [self.videoPreview play];
         }
     }];
     [self.videoPreview play];

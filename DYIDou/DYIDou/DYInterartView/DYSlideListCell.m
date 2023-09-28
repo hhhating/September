@@ -10,6 +10,7 @@
 #import "Config.h"
 #import "DYShareView.h"
 #import "../DYBaseKit/UIView+DYIDou.h"
+#import "DYVideoPlayer.h"
 #define RGBA(R, G, B, A) [UIColor colorWithRed:R/255.0 green:G/255.0 blue:B/255.0 alpha:A]
 static const NSInteger kAwemeListLikeCommentTag = 0x01;
 static const NSInteger kAwemeListLikeShareTag   = 0x02;
@@ -17,6 +18,7 @@ static const NSInteger kAwemeListLikeShareTag   = 0x02;
 @property (nonatomic, strong) UIView *container;
 @property (nonatomic, strong) UITapGestureRecognizer *singleTapGesture;
 @property (nonatomic, strong) NSArray *headIconsName;
+@property (nonatomic, strong) NSArray *videoURL;
 @end
 
 @implementation DYSlideListCell
@@ -27,13 +29,6 @@ static const NSInteger kAwemeListLikeShareTag   = 0x02;
         [self initData];
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         self.backgroundColor = RGBA(0.0, 0.0, 0.0, 0.01);
-        self.videoPlayerController = [[DYVideoPlayerController alloc] initWithView:390 viewHeight:844];
-        NSURL *url = [NSURL URLWithString:@"https://v3.cdnpk.net/videvo_files/video/free/2014-12/large_watermarked/Raindrops_Videvo_preview.mp4"];
-        self.videoPlayerController.url = url;
-        [self.contentView addSubview:self.videoPlayerController.view];
-        [self addSubview];
-        [self layoutSubview];
-        [self.musicAlbum startAnimation:12];
     }
     return self;
 }
@@ -57,7 +52,19 @@ static const NSInteger kAwemeListLikeShareTag   = 0x02;
         @"https://img.freepik.com/premium-photo/young-hipster-asian-man-traveling-with-backpack-summer-forest-trip-travel-lifestyle-concept_41471-13022.jpg",
         @"https://img.freepik.com/premium-photo/cat-looking-forward-3d-illustration_1119-3516.jpg",
         @"https://img.freepik.com/free-photo/asian-teenager-s-portrait-isolated-blue-studio-background_155003-33140.jpg",
-        @"https://img.freepik.com/free-photo/curious-glasses-asiasn-man-with-summer-costume-hand-hold-camera-find-something-white-background_609648-1622.jpg",
+    ];
+    _videoURL = @[
+        @"https://v3.cdnpk.net/videvo_files/video/free/2014-12/large_watermarked/Raindrops_Videvo_preview.mp4",
+        @"https://v3.cdnpk.net/videvo_files/video/free/2019-09/large_watermarked/190828_27_SuperTrees_HD_17_preview.mp4",
+        @"https://v3.cdnpk.net/videvo_files/video/free/video0469/large_watermarked/_import_6174f7e5631083.79269933_preview.mp4",
+        @"https://v3.cdnpk.net/videvo_files/video/free/2019-11/large_watermarked/190301_1_25_11_preview.mp4",
+        @"https://v3.cdnpk.net/videvo_files/video/free/2017-12/large_watermarked/171124_B1_HD_001_preview.mp4",
+        @"https://v3.cdnpk.net/videvo_files/video/free/2019-04/large_watermarked/190408_01_Alaska_Landscapes1_09_preview.mp4",
+        @"https://assets.mixkit.co/videos/preview/mixkit-going-down-a-curved-highway-through-a-mountain-range-41576-large.mp4",
+        @"https://assets.mixkit.co/videos/preview/mixkit-people-pouring-a-warm-drink-around-a-campfire-513-large.mp4",
+        @"https://assets.mixkit.co/videos/preview/mixkit-a-panting-border-collie-receives-a-small-treat-on-its-50683-large.mp4",
+        @"https://assets.mixkit.co/videos/preview/mixkit-a-young-man-takes-a-sip-of-coffee-and-starts-50813-large.mp4",
+        @"https://assets.mixkit.co/videos/preview/mixkit-man-working-on-his-laptop-308-large.mp4",
     ];
 }
 
@@ -147,6 +154,13 @@ static const NSInteger kAwemeListLikeShareTag   = 0x02;
 }
 
 #pragma mark - getter
+- (DYVideoPlayerController *)videoPlayerController {
+    if (!_videoPlayerController) {
+        _videoPlayerController = [[DYVideoPlayerController alloc] initWithView:390 viewHeight:844];
+    }
+    return _videoPlayerController;
+}
+
 - (UIView *)container {
     if (!_container) {
         _container = [UIView new];
@@ -250,6 +264,11 @@ static const NSInteger kAwemeListLikeShareTag   = 0x02;
     _currentIndex = currentIndex;
     [self setHeadImageWithURL:self.headIconsName[currentIndex % self.headIconsName.count]];
     [self setMusicAlbumImageWithURL:self.headIconsName[currentIndex % self.headIconsName.count]];
+    self.videoPlayerController.url = [NSURL URLWithString:self.videoURL[currentIndex % self.videoURL.count]];
+    [self.contentView addSubview:self.videoPlayerController.view];
+    [self addSubview];
+    [self layoutSubview];
+    [self.musicAlbum startAnimation:12];
 }
 
 - (void)setHeadImageWithURL:(NSString *)urlString {
@@ -270,5 +289,11 @@ static const NSInteger kAwemeListLikeShareTag   = 0x02;
             weakSelf.musicAlbum.album.image = image;
         }
     }];
+}
+
+
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    [super setSelected:selected animated:animated];
+    [self.videoPlayerController.videoPreview seekToTime:0.0];
 }
 @end
