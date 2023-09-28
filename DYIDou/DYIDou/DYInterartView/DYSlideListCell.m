@@ -91,6 +91,12 @@ static const NSInteger kAwemeListLikeShareTag   = 0x02;
 }
 
 - (void)layoutSubview {
+    [self.container mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self).inset(10);
+        make.bottom.equalTo(self).inset(70);
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(400);
+    }];
     [self.musicAlbum mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self).inset(10);
         make.bottom.equalTo(self).inset(75);
