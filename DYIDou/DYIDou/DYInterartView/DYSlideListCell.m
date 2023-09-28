@@ -19,6 +19,8 @@ static const NSInteger kAwemeListLikeShareTag   = 0x02;
 @property (nonatomic, strong) UITapGestureRecognizer *singleTapGesture;
 @property (nonatomic, strong) NSArray *headIconsName;
 @property (nonatomic, strong) NSArray *videoURL;
+@property (nonatomic, strong) NSArray *nickNameArray;
+@property (nonatomic, strong) NSArray *descArray;
 @end
 
 @implementation DYSlideListCell
@@ -66,6 +68,28 @@ static const NSInteger kAwemeListLikeShareTag   = 0x02;
         @"https://assets.mixkit.co/videos/preview/mixkit-a-young-man-takes-a-sip-of-coffee-and-starts-50813-large.mp4",
         @"https://assets.mixkit.co/videos/preview/mixkit-man-working-on-his-laptop-308-large.mp4",
     ];
+    _nickNameArray = @[
+        @"@一只小小蛹",
+        @"@噗噗叽叽",
+        @"@我是香秀🐂🍺",
+        @"@智博",
+        @"@嘉之派",
+        @"@我是晴天",
+        @"@七颗猩猩",
+        @"@闲不住的阿俊",
+        @"@别哽哽",
+    ];
+    _descArray = @[
+        @"三个人吃饭 说了 20 个人的坏话",
+        @"全家一起做月饼送给亲朋好友们送祝福是种什么样的体验！",
+        @"晓看天色暮看云 行也思君 坐也思君",
+        @"怎么这么多专家啊……我到底听哪个专家的！！",
+        @"带上一顿海鲜牛肉火锅去见江西粉丝",
+        @"全新一代智能复兴号，牛！太让人骄傲了！#是那个 #晴式 vlog #中国高铁",
+        @"《抢票大业》太燃了，吓得我赶紧连夜抢票 #抢票 #大学生活 #国庆回家 #放假 #当代大学生的精神状态",
+        @"最近又到了吃柚子的季节，大伙柚子吃完皮不要扔呀！它还有很多妙用！",
+        @"赵姐跟我们出来嘎嘎放心 #放假带娃不费妈秘籍",
+    ];
 }
 
 - (void)addSubview {
@@ -79,6 +103,8 @@ static const NSInteger kAwemeListLikeShareTag   = 0x02;
     [self.container addSubview:self.shareNum];
     [self.container addSubview:self.musicAlbum];
     [self.container addSubview:self.head];
+    [self.container addSubview:self.nikeName];
+    [self.container addSubview:self.desc];
 }
 
 - (void)handleGesture:(UITapGestureRecognizer *)sender {
@@ -145,6 +171,18 @@ static const NSInteger kAwemeListLikeShareTag   = 0x02;
         make.right.equalTo(self).inset(10);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
+    }];
+    [self.nikeName mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(self).inset(145);
+        make.left.equalTo(self).inset(10);
+        make.width.mas_equalTo(150);
+        make.height.mas_equalTo(20);
+    }];
+    [self.desc mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.nikeName.mas_bottom).inset(10);
+        make.left.equalTo(self).inset(10);
+        make.width.mas_equalTo(280);
+        make.height.mas_equalTo(45);
     }];
 }
 
@@ -260,10 +298,32 @@ static const NSInteger kAwemeListLikeShareTag   = 0x02;
     return _head;
 }
 
+- (UILabel *)nikeName {
+    if (!_nikeName) {
+        _nikeName = [[UILabel alloc] init];
+        _nikeName.textColor = [UIColor whiteColor];
+        _nikeName.font = BigBoldFont;
+    }
+    return _nikeName;
+}
+
+- (UILabel *)desc {
+    if (!_desc) {
+        _desc = [[UILabel alloc] init];
+        _desc.textColor = [UIColor whiteColor];
+        _desc.font = MediumFont;
+        _desc.numberOfLines = 0;
+        _desc.lineBreakMode = NSLineBreakByWordWrapping;
+    }
+    return _desc;
+}
+
 - (void)setCurrentIndex:(NSUInteger)currentIndex {
     _currentIndex = currentIndex;
     [self setHeadImageWithURL:self.headIconsName[currentIndex % self.headIconsName.count]];
-    [self setMusicAlbumImageWithURL:self.headIconsName[currentIndex % self.headIconsName.count]];
+    [self setMusicAlbumImageWithURL:self.headIconsName[currentIndex % self.videoURL.count]];
+    self.nikeName.text = self.nickNameArray[currentIndex % self.nickNameArray.count];
+    self.desc.text = self.descArray[currentIndex % self.descArray.count];
     self.videoPlayerController.url = [NSURL URLWithString:self.videoURL[currentIndex % self.videoURL.count]];
     [self.contentView addSubview:self.videoPlayerController.view];
     [self addSubview];

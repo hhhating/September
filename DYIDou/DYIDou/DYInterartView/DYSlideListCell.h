@@ -13,19 +13,22 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface DYSlideListCell : UITableViewCell
-@property (nonatomic, assign) NSUInteger currentIndex;
+@property (nonatomic, assign) NSUInteger currentIndex;                      // 当前选中单元格的索引
 
-@property (nonatomic, strong) DYVideoPlayerController *videoPlayerController;
-@property (nonatomic, strong) DYLikeView *likeView;
-@property (nonatomic, strong) DYMusicAlbumView *musicAlbum;
+@property (nonatomic, strong) DYVideoPlayerController *videoPlayerController; // 视频播放器
+@property (nonatomic, strong) DYLikeView *likeView;                         // 点赞视图
+@property (nonatomic, strong) DYMusicAlbumView *musicAlbum;                  // 音乐专辑视图
 
-@property (nonatomic, strong) UIImageView *head;
-@property (nonatomic, strong) UIImageView *share;
-@property (nonatomic, strong) UIImageView *comment;
+@property (nonatomic, strong) UIImageView *head;                            // 头像视图
+@property (nonatomic, strong) UIImageView *share;                           // 分享视图
+@property (nonatomic, strong) UIImageView *comment;                         // 评论视图
 
-@property (nonatomic, strong) UILabel *shareNum;
-@property (nonatomic, strong) UILabel *commentNum;
-@property (nonatomic, strong) UILabel *likeNum;
+@property (nonatomic, strong) UILabel *shareNum;                            // 分享数 label
+@property (nonatomic, strong) UILabel *commentNum;                          // 评论数 label
+@property (nonatomic, strong) UILabel *likeNum;                             // 点赞数 label
+
+@property (nonatomic, strong) UILabel *nikeName;                            // 昵称 label
+@property (nonatomic, strong) UILabel *desc;                                // 视频内容描述 label
 @end
 
 NS_ASSUME_NONNULL_END
