@@ -208,7 +208,6 @@ static CGFloat kItemWidth = 68.0;
     }];
 }
 
-
 - (void)setImageWithURL:(NSString *)urlString {
     NSURL *url = [NSURL URLWithString:urlString];
     __weak typeof(self) weakSelf = self;
@@ -232,7 +231,6 @@ static CGFloat kItemWidth = 68.0;
     }
     return _icon;
 }
-
 
 - (UILabel *)label {
     if (!_label) {

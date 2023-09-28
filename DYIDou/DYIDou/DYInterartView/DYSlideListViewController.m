@@ -12,9 +12,8 @@
 static NSUInteger kDataSourceCount = 100;
 
 @interface DYSlideListViewController () <UITableViewDelegate, UITableViewDataSource>
-
 @property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, assign) NSInteger    currentIndex;
+@property (nonatomic, assign) NSInteger currentIndex;
 @end
 
 @implementation DYSlideListViewController
@@ -30,6 +29,7 @@ static NSUInteger kDataSourceCount = 100;
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUpView];
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
 }
 
 #pragma mark - private methods
@@ -38,7 +38,6 @@ static NSUInteger kDataSourceCount = 100;
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, -SCREEN_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT * 5)];
     // 内容内边距，上、左、下、右
     _tableView.contentInset = UIEdgeInsetsMake(SCREEN_HEIGHT, 0, SCREEN_HEIGHT * 3, 0);
-    
     _tableView.backgroundColor = [UIColor clearColor];
     _tableView.delegate = self;
     _tableView.dataSource = self;
@@ -58,18 +57,11 @@ static NSUInteger kDataSourceCount = 100;
     });
 }
 
-- (UIColor *)randomColor {
-    CGFloat hue = (arc4random() % 256 / 256.0 );  //  0.0 to 1.0
-    CGFloat saturation = ( arc4random() % 128 / 256.0 ) + 0.5;  //  0.5 to 1.0, away from white
-    CGFloat brightness = ( arc4random() % 128 / 256.0 ) + 0.5;  //  0.5 to 1.0, away from black
-    UIColor *color = [UIColor colorWithHue:hue saturation:saturation brightness:brightness alpha:1];
-    return color;
-}
-
 #pragma mark - UITableViewDelegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return kDataSourceCount;
 }
@@ -80,7 +72,6 @@ static NSUInteger kDataSourceCount = 100;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     DYSlideListCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(DYSlideListCell.class)];
-    cell.backgroundColor = [self randomColor];
     cell.currentIndex = indexPath.row;
     return cell;
 }

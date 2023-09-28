@@ -87,23 +87,23 @@ static const NSInteger kAwemeListLikeShareTag   = 0x02;
             break;
         }
         default: {
-//            //获取点击坐标，用于设置爱心显示位置
+//            // 获取点击坐标，用于设置爱心显示位置
 //            CGPoint point = [sender locationInView:self.container];
-//            //获取当前时间
+//            // 获取当前时间
 //            NSTimeInterval time = [[NSDate dateWithTimeIntervalSinceNow:0] timeIntervalSince1970];
-//            //判断当前点击时间与上次点击时间的时间间隔
+//            // 判断当前点击时间与上次点击时间的时间间隔
 //            if(time - self.lastTapTime > 0.25f) {
-//                //推迟0.25秒执行单击方法
+//                // 推迟0.25秒执行单击方法
 //                [self performSelector:@selector(singleTapAction) withObject:nil afterDelay:0.25f];
 //            }else {
-//                //取消执行单击方法
+//                // 取消执行单击方法
 //                [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(singleTapAction) object: nil];
 //                //执行连击显示爱心的方法
 //                [self showLikeViewAnim:point oldPoint:self.lastTapPoint];
 //            }
-//            //更新上一次点击位置
+//            // 更新上一次点击位置
 //            self.lastTapPoint = point;
-//            //更新上一次点击时间
+//            // 更新上一次点击时间
 //            self.lastTapTime =  time;
             break;
         }
@@ -123,7 +123,7 @@ static const NSInteger kAwemeListLikeShareTag   = 0x02;
 - (DYMusicAlbumView *)musicAlbum {
     if (!_musicAlbum) {
         _musicAlbum = [[DYMusicAlbumView alloc] initWithFrame:CGRectMake(0, 0, widthHeight, widthHeight)];
-        
+
         __weak __typeof(self) wself = self;
         //加载网络图
         [_musicAlbum.album sd_setImageWithURL:[NSURL URLWithString:@"https://img.freepik.com/free-photo/beautiful-fluffy-cat-bed-generative-ai_169016-28980.jpg"] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {

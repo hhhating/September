@@ -11,6 +11,9 @@
 @end
 
 @implementation DYMusicAlbumView
+- (instancetype)init {
+    return [self initWithFrame:CGRectMake(0, 0, 50, 50)];
+}
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame: frame];
     if (self) {

@@ -11,7 +11,7 @@ static const NSInteger kFavoriteViewLikeAfterTag   = 0x02;
 @implementation DYLikeView
 
 - (instancetype)init {
-    return [self initWithFrame:CGRectMake(0, 0, 100, 90)];
+    return [self initWithFrame:CGRectMake(0, 0, 50, 45)];
 }
 
 - (instancetype)initWithFrame:(CGRect)frame {

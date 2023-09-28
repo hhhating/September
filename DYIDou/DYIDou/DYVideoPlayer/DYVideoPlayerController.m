@@ -8,7 +8,7 @@
 #import "DYVideoPlayerController.h"
 #import "DYHelper.h"
 #import "UIImage+DYIDou.h"
-
+#import "../DYBaseKit/UIView+DYIDou.h"
 static const CGFloat kLabelWidth = 65.0;
 static const CGFloat kLabelHeight = 20.0;
 static const CGFloat kSliderHeight = 20.0;
@@ -136,7 +136,7 @@ static const NSString *kOriginalTime = @"00";
 
 - (UIView *)contentView {
     if (!_contentView) {
-        _contentView = [[UIView alloc] initWithFrame:self.view.frame];
+        _contentView = [[UIView alloc] initWithFrame:CGRectMake(self.view.dy_origin.x, 422, 390, 0)];
         _contentView.backgroundColor = [UIColor whiteColor];
     }
     return _contentView;
