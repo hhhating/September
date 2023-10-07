@@ -24,9 +24,9 @@
         backgroundLayer.contents = (id)[UIImage imageNamed:@"music_album"].CGImage;
         [self.albumContainer.layer addSublayer:backgroundLayer];
         // 用于自定义图片
-        CGFloat w = CGRectGetWidth(frame) / 2.0f;
-        CGFloat h = CGRectGetHeight(frame) / 2.0f;
-        CGRect albumFrame = CGRectMake(w / 2.0f, h / 2.0f, w, h);
+        CGFloat w = CGRectGetWidth(frame);
+        CGFloat h = CGRectGetHeight(frame);
+        CGRect albumFrame = CGRectMake(0, 0, w, h);
         self.album = [[UIImageView alloc]initWithFrame:albumFrame];
         self.album.contentMode = UIViewContentModeScaleAspectFill;
         [self.albumContainer addSubview:self.album];
@@ -35,7 +35,6 @@
     }
     return self;
 }
-
 
 - (void)startAnimation:(CGFloat)rate {
     rate = fabs(rate); // 防止 rate 为负值

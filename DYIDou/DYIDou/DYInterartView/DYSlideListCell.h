@@ -20,6 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) DYMusicAlbumView *musicAlbum;                  // 音乐专辑视图
 
 @property (nonatomic, strong) UIImageView *head;                            // 头像视图
+@property (nonatomic, strong) UIView *headView;                             // 头像底部空白视图
 @property (nonatomic, strong) UIImageView *share;                           // 分享视图
 @property (nonatomic, strong) UIImageView *comment;                         // 评论视图
 

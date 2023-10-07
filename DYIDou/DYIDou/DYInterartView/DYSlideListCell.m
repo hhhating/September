@@ -47,11 +47,8 @@ static const NSInteger kAwemeListLikeShareTag   = 0x02;
         @"https://img.freepik.com/free-photo/attractive-beautiful-asian-female-casual-dress-wear-hat-hand-hold-film-camera-travel-vacation-concept-white-background_609648-879.jpg",
         @"https://img.freepik.com/free-photo/cute-woman-hold-hands-gesture-empty-spec-business-woman-concept-pink-background-3d-rendering_56104-1468.jpg",
         @"https://img.freepik.com/free-photo/front-view-smiley-kid-holding-camera_23-2149514062.jpg",
-        @"https://img.freepik.com/premium-photo/photo-female-tourist-taking-photo-street-landscape_296537-3310.jpg",
-        @"http://ww1.sinaimg.cn/crop.278.0.1448.1448.1024/5a22e1e7jw8eo10kpdkanj21kw148gsh.jpg",
         @"https://img.freepik.com/premium-photo/school-girl-wear-pink-shirt-jean-holding-holding-pink-book-stairs_323117-2352.jpg",
         @"https://img.freepik.com/free-photo/smiley-girl-taking-photos_23-2148480296.jpg",
-        @"https://img.freepik.com/premium-photo/young-hipster-asian-man-traveling-with-backpack-summer-forest-trip-travel-lifestyle-concept_41471-13022.jpg",
         @"https://img.freepik.com/premium-photo/cat-looking-forward-3d-illustration_1119-3516.jpg",
         @"https://img.freepik.com/free-photo/asian-teenager-s-portrait-isolated-blue-studio-background_155003-33140.jpg",
     ];
@@ -102,7 +99,7 @@ static const NSInteger kAwemeListLikeShareTag   = 0x02;
     [self.container addSubview:self.share];
     [self.container addSubview:self.shareNum];
     [self.container addSubview:self.musicAlbum];
-    [self.container addSubview:self.head];
+    [self.container addSubview:self.headView];
     [self.container addSubview:self.nikeName];
     [self.container addSubview:self.desc];
 }
@@ -166,7 +163,7 @@ static const NSInteger kAwemeListLikeShareTag   = 0x02;
         make.top.equalTo(self.likeView.mas_bottom);
         make.centerX.equalTo(self.likeView);
     }];
-    [self.head mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.headView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(self.likeView.mas_top).inset(25);
         make.right.equalTo(self).inset(10);
         make.width.mas_equalTo(50);
@@ -244,7 +241,7 @@ static const NSInteger kAwemeListLikeShareTag   = 0x02;
 - (UILabel *)commentNum {
     if (!_commentNum) {
         _commentNum = [[UILabel alloc] init];
-        _commentNum.text = [NSString stringWithFormat:@"%.1fw", [self randomFloat]];
+        _commentNum.text = [NSString stringWithFormat:@"%.1f万", [self randomFloat]];
         _commentNum.textColor = [UIColor whiteColor];
         _commentNum.font = [UIFont systemFontOfSize:12.0];
         _commentNum.textAlignment = NSTextAlignmentCenter;
@@ -255,7 +252,7 @@ static const NSInteger kAwemeListLikeShareTag   = 0x02;
 - (UILabel *)likeNum {
     if (!_likeNum) {
         _likeNum = [[UILabel alloc] init];
-        _likeNum.text = [NSString stringWithFormat:@"%.1fw", [self randomFloat]];
+        _likeNum.text = [NSString stringWithFormat:@"%.1f万", [self randomFloat]];
         _likeNum.textColor = [UIColor whiteColor];
         _likeNum.font = [UIFont systemFontOfSize:12.0];
         _likeNum.textAlignment = NSTextAlignmentCenter;
@@ -278,7 +275,7 @@ static const NSInteger kAwemeListLikeShareTag   = 0x02;
 - (UILabel *)shareNum {
     if (!_shareNum) {
         _shareNum = [[UILabel alloc] init];
-        _shareNum.text = [NSString stringWithFormat:@"%.1fw", [self randomFloat]];
+        _shareNum.text = [NSString stringWithFormat:@"%.1f万", [self randomFloat]];
         _shareNum.textColor = [UIColor whiteColor];
         _shareNum.font = [UIFont systemFontOfSize:12.0];
         _shareNum.textAlignment = NSTextAlignmentCenter;
@@ -288,14 +285,31 @@ static const NSInteger kAwemeListLikeShareTag   = 0x02;
 
 - (UIImageView *)head {
     if (!_head) {
-        CGFloat wh = 50.0f;
-        CGRect headFrame = CGRectMake(wh / 2.0f, wh / 2.0f, wh, wh);
+        CGFloat wh = 46.0f; // 修改圆的直径为 46
+        CGFloat xOffset = (50.0f - wh) / 2.0f; // 计算 x 方向的偏移量，以使圆心对齐
+        CGFloat yOffset = (50.0f - wh) / 2.0f; // 计算 y 方向的偏移量，以使圆心对齐
+        CGRect headFrame = CGRectMake(xOffset, yOffset, wh, wh); // 调整 head 的起始位置以使圆心对齐
         _head = [[UIImageView alloc] initWithFrame:headFrame];
         _head.contentMode = UIViewContentModeScaleAspectFill;
         _head.layer.cornerRadius = wh / 2.0f;
         _head.layer.masksToBounds = YES;
     }
     return _head;
+}
+
+- (UIView *)headView {
+    if (!_headView) {
+        CGFloat wh = 50.0f;
+        CGRect headFrame = CGRectMake(0, 0, wh, wh); // 调整 headView 的起始位置以使圆心对齐
+        _headView = [[UIView alloc] initWithFrame:headFrame];
+        CALayer *backgroundLayer = [CALayer layer];
+        backgroundLayer.frame = headFrame;
+        backgroundLayer.backgroundColor = [UIColor whiteColor].CGColor;
+        backgroundLayer.cornerRadius = 50.0f / 2.0f;
+        [_headView.layer addSublayer:backgroundLayer];
+        [_headView addSubview:self.head];
+    }
+    return _headView;
 }
 
 - (UILabel *)nikeName {
