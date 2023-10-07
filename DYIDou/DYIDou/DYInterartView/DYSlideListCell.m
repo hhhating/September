@@ -285,10 +285,10 @@ static const NSInteger kAwemeListLikeShareTag   = 0x02;
 
 - (UIImageView *)head {
     if (!_head) {
-        CGFloat wh = 46.0f; // 修改圆的直径为 46
-        CGFloat xOffset = (50.0f - wh) / 2.0f; // 计算 x 方向的偏移量，以使圆心对齐
-        CGFloat yOffset = (50.0f - wh) / 2.0f; // 计算 y 方向的偏移量，以使圆心对齐
-        CGRect headFrame = CGRectMake(xOffset, yOffset, wh, wh); // 调整 head 的起始位置以使圆心对齐
+        CGFloat wh = 46.0f;
+        CGFloat xOffset = (50.0f - wh) / 2.0f;
+        CGFloat yOffset = (50.0f - wh) / 2.0f;
+        CGRect headFrame = CGRectMake(xOffset, yOffset, wh, wh);
         _head = [[UIImageView alloc] initWithFrame:headFrame];
         _head.contentMode = UIViewContentModeScaleAspectFill;
         _head.layer.cornerRadius = wh / 2.0f;
@@ -300,7 +300,7 @@ static const NSInteger kAwemeListLikeShareTag   = 0x02;
 - (UIView *)headView {
     if (!_headView) {
         CGFloat wh = 50.0f;
-        CGRect headFrame = CGRectMake(0, 0, wh, wh); // 调整 headView 的起始位置以使圆心对齐
+        CGRect headFrame = CGRectMake(0, 0, wh, wh);
         _headView = [[UIView alloc] initWithFrame:headFrame];
         CALayer *backgroundLayer = [CALayer layer];
         backgroundLayer.frame = headFrame;
