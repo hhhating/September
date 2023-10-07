@@ -68,13 +68,13 @@ static const NSString *kplayerStatus = @"status";
 - (void)stop
 {
     self.playerStatus = DYPlayerStatusFinished;
-    [self.currentItem seekToTime:kCMTimeZero toleranceBefore:kCMTimeZero toleranceAfter:kCMTimeZero];
+    [self.currentItem seekToTime:kCMTimeZero toleranceBefore:kCMTimeZero toleranceAfter:kCMTimeZero completionHandler:nil];
     [self.currentItem cancelPendingSeeks];
 }
 
 - (void)seekToTime:(CGFloat)time
 {
-    [self.currentItem seekToTime:CMTimeMakeWithSeconds(time, 1.0) toleranceBefore:kCMTimeZero toleranceAfter:kCMTimeZero];
+    [self.currentItem seekToTime:CMTimeMakeWithSeconds(time, 1.0) toleranceBefore:kCMTimeZero toleranceAfter:kCMTimeZero completionHandler:nil];
 }
 
 #pragma mark - Private method
